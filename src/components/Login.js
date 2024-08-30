@@ -20,7 +20,7 @@ const Login = () => {
   
       if (response.data.jwt) {
         localStorage.setItem('jwt', response.data.jwt);
-        const userRole = response.data.user.role.name; // Adjust if necessary based on role structure
+        const userRole = response.data.user.userRole; // Adjust if necessary based on role structure
         console.log('User role:', userRole); // Add this line
         if (userRole === 'client') {
           navigate('/client-dashboard');
