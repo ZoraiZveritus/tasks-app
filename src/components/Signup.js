@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('client');
+  const [userRole, setUserRole] = useState('client');
   const navigate = useNavigate();
 
   const handleSignup = async (event) => {
@@ -16,14 +16,14 @@ const Signup = () => {
         email,
         password,
         username: email,
-        role,
+        userRole
       });
 
       if (response.data.jwt) {
         localStorage.setItem('jwt', response.data.jwt);
-        if (role === 'client') {
+        if (userRole === 'client') {
           navigate('/client-dashboard');
-        } else if (role === 'staff') {
+        } else if (userRole === 'staff') {
           navigate('/staff-dashboard');
         }
       }
@@ -59,8 +59,8 @@ const Signup = () => {
             required
           />
           <RadioGroup
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
+            value={userRole}
+            onChange={(e) => setUserRole(e.target.value)}
             row
             sx={{ mt: 2, justifyContent: 'center' }}
           >

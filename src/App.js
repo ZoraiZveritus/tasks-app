@@ -7,6 +7,7 @@ import StaffDashboard from './components/StaffDashboard';
 
 function App() {
   return (
+
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
@@ -15,6 +16,7 @@ function App() {
         <Route path="/staff-dashboard" element={<StaffDashboard />} />
       </Routes>
     </Router>
+
   );
 }
 
